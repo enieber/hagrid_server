@@ -1,0 +1,18 @@
+CREATE TABLE locales (
+  id INTEGER PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  position VARCHAR(255)
+);
+
+CREATE TABLE vaults (
+  id INTEGER PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  localesId INTEGER REFERENCES locales (id)
+);
+
+CREATE TABLE items (
+  id INTEGER PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  vaultsId INTEGER REFERENCES vaults(id)
+);
+
